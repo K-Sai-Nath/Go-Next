@@ -7,7 +7,7 @@ import Contact from "./Contact";
 import About from "./About";
 function Home() {
   const [activeSection, setActiveSection] = useState(null);
-
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   // Scroll spy logic
   useEffect(() => {
     const handleScroll = () => {
@@ -95,11 +95,43 @@ function Home() {
             </a>
 
             {/* Mobile Menu */}
-            <button className="lg:hidden text-[var(--primary-color)]">
-              <span className="material-symbols-outlined text-3xl">menu</span>
+            <button
+              className="lg:hidden text-[var(--primary-color)]"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              <span className="material-symbols-outlined text-3xl">
+                {isMobileMenuOpen ? "close" : "menu"}
+              </span>
             </button>
           </div>
         </div>
+
+        {/* Mobile Dropdown */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden bg-[var(--bg-color)] border-t border-gray-700 px-4 py-4 space-y-4">
+            {navItems.map((sec) => (
+              <a
+                key={sec}
+                href={`#${sec}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block text-sm font-medium ${
+                  activeSection === sec
+                    ? "text-[var(--primary-color)]"
+                    : "text-[var(--secondary-color)] hover:text-[var(--primary-color)]"
+                }`}
+              >
+                {sec.charAt(0).toUpperCase() + sec.slice(1)}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block w-full text-center px-6 py-3 rounded-full text-sm font-semibold btn-primary"
+            >
+              Start a Project
+            </a>
+          </div>
+        )}
       </header>
 
       {/* Main */}
