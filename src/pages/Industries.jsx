@@ -65,47 +65,39 @@ export default function Industries({ id }) {
 
         <div className="space-y-20">
           {industries.map((industry, idx) => (
-            <Slide
-              key={idx}
-              direction={industry.reverse ? "right" : "left"}
-              cascade={false}
-              duration={600}
-              delay={idx * 200}
+            <div
+              className={`grid md:grid-cols-2 gap-12 items-center ${
+                industry.reverse ? "md:flex-row-reverse" : ""
+              }`}
             >
+              {/* Image */}
               <div
-                className={`grid md:grid-cols-2 gap-12 items-center ${
-                  industry.reverse ? "md:flex-row-reverse" : ""
+                className={`rounded-xl overflow-hidden shadow-lg group ${
+                  industry.reverse ? "order-2 md:order-2" : ""
                 }`}
               >
-                {/* Image */}
                 <div
-                  className={`rounded-xl overflow-hidden shadow-lg group ${
-                    industry.reverse ? "order-2 md:order-2" : ""
-                  }`}
-                >
-                  <div
-                    className="w-full bg-center bg-cover aspect-video transition-transform duration-500 group-hover:scale-105"
-                    style={{ backgroundImage: `url(${industry.image})` }}
-                  />
-                </div>
-
-                {/* Text */}
-
-                <div
-                  className={`${industry.reverse ? "order-1 md:order-1" : ""}`}
-                >
-                  <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-                    {industry.title}
-                  </h3>
-                  <h4 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-3">
-                    {industry.subtitle}
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-400">
-                    {industry.description}
-                  </p>
-                </div>
+                  className="w-full bg-center bg-cover aspect-video transition-transform duration-500 group-hover:scale-105"
+                  style={{ backgroundImage: `url(${industry.image})` }}
+                />
               </div>
-            </Slide>
+
+              {/* Text */}
+
+              <div
+                className={`${industry.reverse ? "order-1 md:order-1" : ""}`}
+              >
+                <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                  {industry.title}
+                </h3>
+                <h4 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-3">
+                  {industry.subtitle}
+                </h4>
+                <p className="text-gray-600 dark:text-gray-400">
+                  {industry.description}
+                </p>
+              </div>
+            </div>
           ))}
         </div>
       </div>
