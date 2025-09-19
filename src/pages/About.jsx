@@ -1,21 +1,24 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Sai from "../assets/Sai_Nath.png";
+import Charan from "../assets/Charan.jpeg";
+import Vishnu from "../assets/Vishnu.jpeg";
+import Vamshi from "../assets/Vamshi.jpeg";
 const teamMembers = [
   {
     name: "Sai Vishnu Alabaka",
     role: "CEO",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCptAFamsr_9dwzke6L8bYZTmBGFxn-IZEZDjFiKbIpgVDdXI56MtOviFhkMIgfgFT6yVIzPcya3cTAM0sIi3Kwx4lVvjgf_J6sm7yrvDGiSgvukIiwhrUsW68zf2urpUcAQFdQoIdcJAmPmrj7m99gzbHcHvYeZWw7UBfRXxEqFJr6YqIMa77UTnmVgjmG96FeP7IzNk7RFurxi30DuusgjHUsgB7qKMnpxX_nXhm8JK1zslG_kiaz5w2qlTPjtobZRwHr69thFgM",
+    img: Vishnu,
   },
   {
     name: "Charan Vadla",
     role: "CTO",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuD6VkEtZazBpYjM0F_O16fAxEjLsNJ4tfCeZUHaObOF3lT0G70dovoR7sw6B2659m_huBUD3vcTBFpYPTbbKnBa_zxgFnPdEhVvOMdLOi7HxVcn5CFUYBlePXGH9fkNmhiPyob3Hy3R6aIdmmJ2gmpx3fAuNpexk5tF-3owW2gItKqjwdmN-MSoRTmAdG6nkUtDd8QHT1eRrAVgNOk390Ezs7Sl55-ux3zc2FKIIEbSILiwlGr3Uo6rtxN0SR515GTkc-DuIvcHHvU",
+    img: Charan,
   },
   {
     name: "Vamshi Alabaka",
     role: "COO",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDYsnQqLpXu2XajBBu7tYtOU3nV2hf30RgPdlj9sboUDI83_3YS4UzvFJMIQ70Anud1vH2_mVuf3aFwat20tARB8XEYvpYNgX1utRf6MuXtLukIPd14a04NB-_MVPxqd79j__KxbR3DMAswRpfkf0wNo-pcOSibwOQ3LjRIJZWYytWsigNhg-koB-RRjiWUpIMo1JKgxXrLwFfEfMe1-Wu98-rI1I6qGOhz5kFGwOyYQ5Up7jz5_dbAaD4pI18RxUqMRBENDHehZBg",
+    img: Vamshi,
   },
   {
     name: "Sainath Kancharakuntla",
@@ -93,8 +96,8 @@ export default function About({ id }) {
       </motion.section>
 
       {/* Team Grid */}
-      <div className="flex justify-center">
-        <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-6 xl:gap-x-8 justify-center justify-items-center">
+      <div className="w-full flex justify-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 place-items-center text-center max-w-6xl">
           {teamMembers.map((member, idx) => (
             <motion.div
               key={idx}

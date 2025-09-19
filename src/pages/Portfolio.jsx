@@ -1,42 +1,49 @@
 // components/Portfolio.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // Import local images from assets
 import sjmedspace from "../assets/medsapce.jpeg";
 import smashlive from "../assets/smashline.jpeg";
 import ultimfitness from "../assets/ultim.jpeg";
-
+import QR_Image from "../assets/QR_Project.jpg";
 const projects = [
   {
-    title: "SJMedSpace Healthcare Platform",
+    title: "SJMedSpace EdTech Platform",
     description:
-      "Developed a healthcare platform to streamline patient and doctor interactions with a responsive, secure web app.",
+      "Designed and developed an EdTech platform tailored for medical aspirants, providing easy access to a wide range of research publications, journals, and study materials. The platform helps students stay updated with the latest medical knowledge, streamlines content discovery through categorized resources, and offers a responsive, secure interface to ensure accessibility across devices.",
     image: sjmedspace,
   },
+
   {
     title: "SmashLive Sports Booking App",
     description:
-      "Developing an app where users can book sports sessions such as tennis and pickleball.",
+      "A mobile-first application that allows users to seamlessly book and manage sports sessions such as tennis, pickleball, and badminton. The app features real-time court availability, secure online payments, session reminders, and a smooth user experience designed for both players and venue owners. Built with a focus on scalability and performance, SmashLive enhances sports engagement by simplifying the booking process and promoting active lifestyles.",
     image: smashlive,
   },
   {
     title: "UltimFitness Gym Session Platform",
     description:
-      "A unified booking platform for gym sessions, currently under development.",
+      "A comprehensive gym session booking platform designed to simplify fitness scheduling. Users can browse available workout sessions, reserve spots in advance, and manage their bookings seamlessly. The platform aims to provide an intuitive experience for both gym-goers and administrators, enabling streamlined session management, attendance tracking, and future integration with payment and membership systems. Currently under active development.",
     image: ultimfitness,
   },
   {
     title: "Tailgate QR System",
     description:
-      "QR-based entry and exit system to restrict or grant access automatically.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCceBxEZZSRI_ZlfJhxJHBZTa1HWxUfOYkUq-Qeu3Mrq0zxM1BxX6rgf1VqH-ifWISAlKpRcdqdNWDMrMi8vtaLX851Ff7l9_q-IkXfsobJ_9Fw3vxmqK2fHIyATffgxgzBft_-_N6iWubDd-FVNEEbhcYp_-esso9oGN7c5c1IAiFWCQ-gJ4M16gpdoMFwtdlKgEJX0iCEuTR2ppElRsAWT4ub2f9MLVFYhNVBJ3LN2BDetxbywJyUB1K_AgWCK8y3HI7B2IzyxSk",
+      "Implemented a QR-based entry & exit system (“Tailgate QR System”) that automatically grants or denies access by validating unique QR codes. Features include time-limited access rights, user role-based permissions, audit logging of entry/exit events, and a responsive front-end for both mobile and desktop. Built with secure back-end authentication, real-time scanning, and alerting for unauthorized access.",
+    image: QR_Image,
   },
 ];
 
 const Portfolio = ({ id }) => {
   const [selectedProject, setSelectedProject] = useState(null);
-
+  useEffect(() => {
+    if (selectedProject) {
+      document.getElementById(id)?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [selectedProject]);
   return (
     <main
       id={id}
